@@ -1,0 +1,31 @@
+<%= form_for @gym do |f| %>
+	<% if @gym.errors.any? %>
+		<div id="errors">
+			<p><%= pluralize(@gym.errors.count, "error") %></p>
+			<ul>
+				<% @gym.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<%= f.label :name %><br>
+	<%= f.text_field :name %><br>
+	<br>
+  <%= f.label :owner %><br>
+	<%= f.text_field :owner %><br>
+	<br>
+  <%= f.label :website %><br>
+	<%= f.text_field :website %><br>
+	<br>
+  <%= f.label :fb_page %><br>
+	<%= f.text_field :fb_page %><br>
+	<br>
+  <%= f.label :tw_page %><br>
+	<%= f.text_field :tw_page %><br>
+	<br>
+  <%= f.label :ins_page %><br>
+	<%= f.text_field :ins_page %><br>
+	<br>
+	<%= f.submit %>
+<% end %>
