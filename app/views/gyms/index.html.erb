@@ -2,5 +2,5 @@
 
 <% @gyms.each do |gym| %>
   <%= link_to gym.name, gym %>
-  <%= gym.website %>
+  <%= link_to gym.website, "http://#{gym.website}" %>
 <% end %>
