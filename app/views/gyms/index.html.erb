@@ -1,6 +1,8 @@
 <h1>FitRank</h1>
 
 <% @gyms.each do |gym| %>
-  <%= link_to gym.name, gym %>
-  <%= link_to gym.website, "http://#{gym.website}" %>
+  <div class="gym">
+    <%= link_to gym.name, gym %>
+    <%= link_to gym.website, "http://#{gym.website}" %>
+  </div>
 <% end %>
