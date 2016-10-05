@@ -3,6 +3,9 @@
 <% @gyms.each do |gym| %>
   <div class="gym">
     <%= link_to gym.name, gym %>
-    <%= link_to gym.website, "http://#{gym.website}" %>
+    <%= link_to gym.website, "http://#{gym.website}", target: "_blank" %>
+    <%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "http://#{gym.fb_page}", target: "_blank"%>
+    <%= link_to '<i class="fa fa-twitter"></i>'.html_safe, "http://#{gym.tw_page}", target: "_blank"%>
+    <%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "http://#{gym.ins_page}", target: "_blank"%>
   </div>
 <% end %>
