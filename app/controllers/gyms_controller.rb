@@ -24,6 +24,11 @@ class GymsController < ApplicationController
 
   def show
     @gym = Gym.find(params[:id])
+
+    @hash = Gmaps4rails.build_markers(@gym) do |gym, marker|
+      marker.lat gym.latitude
+      marker.lng gym.longitude
+    end
   end
 
   def edit
