@@ -2,6 +2,9 @@
 
 <h2><%= @gym.name %></h2>
 <h4><%= @gym.owner %></h4>
+<h4><%= @gym.address %></h4>
+<h4><%= @gym.latitude %></h4>
+<h4><%= @gym.longitude %></h4>
 <h4><%= link_to @gym.website, "http://#{@gym.website}", target: "_blank" %></h4>
 
 <%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "http://#{@gym.fb_page}", target: "_blank"%>

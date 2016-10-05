@@ -1,11 +1,25 @@
 <h1>FitRank</h1>
 
-<% @gyms.each do |gym| %>
-  <div class="gym">
-    <%= link_to gym.name, gym %>
-    <%= link_to gym.website, "http://#{gym.website}", target: "_blank" %>
-    <%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "http://#{gym.fb_page}", target: "_blank"%>
-    <%= link_to '<i class="fa fa-twitter"></i>'.html_safe, "http://#{gym.tw_page}", target: "_blank"%>
-    <%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "http://#{gym.ins_page}", target: "_blank"%>
-  </div>
-<% end %>
+<div class="row">
+
+  <% @gyms.each do |gym| %>
+    <div class="gym">
+      <div class="col-sm-4">
+        <%= link_to gym.name, gym %>
+      </div>
+      <div class="col-sm-5">
+        <%= link_to gym.website, "http://#{gym.website}", target: "_blank" %>
+      </div>
+      <div class="col-sm-1">
+        <%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "http://#{gym.fb_page}", target: "_blank"%>
+      </div>
+      <div class="col-sm-1">
+        <%= link_to '<i class="fa fa-twitter"></i>'.html_safe, "http://#{gym.tw_page}", target: "_blank"%>
+      </div>
+      <div class="col-sm-1">
+        <%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "http://#{gym.ins_page}", target: "_blank"%>
+      </div>
+    </div>
+  <% end %>
+
+</div>
