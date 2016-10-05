@@ -1,6 +1,11 @@
 class GymsController < ApplicationController
   def index
     @gyms = Gym.all.order('created_at DESC')
+
+    @hash = Gmaps4rails.build_markers(@gyms) do |gym, marker|
+      marker.lat gym.latitude
+      marker.lng gym.longitude
+    end
   end
 
   def new
