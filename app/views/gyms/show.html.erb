@@ -32,6 +32,25 @@
   </div>
 </div>
 
+<h2>Add a comment:</h2>
+<%= form_for([@gym, @gym.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<h2>Comments</h2>
+<% @gym.comments.each do |comment| %>
+  <p>
+    <b>Comment:</b>
+    <%= comment.body %>
+  </p>
+<% end %>
+
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map_show_page'}}, function(){
