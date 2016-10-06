@@ -7,10 +7,14 @@
   <div class="col-sm-6" id="map_show_page" style="height: 300px;"></div>
   <div class="col-sm-6">
     <h2><%= @gym.name %></h2>
+
+    <% if user_signed_in? %>
+     <%= link_to "Edit", edit_gym_path(@gym), class:"btn btn-default" %>
+     <%= link_to "Delete", gym_path(@gym), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-default" %>
+    <% end %>
+
     <h4>Owner: <%= @gym.owner %></h4>
     <h4>Address: <%= @gym.address %></h4>
-    <!--<h4><%= @gym.latitude %></h4>
-    <h4><%= @gym.longitude %></h4>-->
     <h4><%= link_to @gym.website, "http://#{@gym.website}", target: "_blank" %></h4>
 
     <%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "http://#{@gym.fb_page}", target: "_blank"%>
@@ -18,14 +22,14 @@
     <%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "http://#{@gym.ins_page}", target: "_blank"%>
 
     <h2>Vote:</h2>
+    <%= @gym.get_upvotes.size %>
     <%= link_to like_gym_path(@gym), method: :put do %>
-      Upvote
-      <%= @gym.get_upvotes.size %>
+      <%= fa_icon "thumbs-up" %>
     <% end %>
 
+    <%= @gym.get_downvotes.size %>
     <%= link_to dislike_gym_path(@gym), method: :put do %>
-      Downvote
-      <%= @gym.get_downvotes.size %>
+      <%= fa_icon "thumbs-down" %>
     <% end %>
 
     <h3><%= @score %></h3>
@@ -46,14 +50,16 @@
 <h2>Comments</h2>
 <% @gym.comments.each do |comment| %>
   <p>
-    <b>Comment:</b>
+    <%= comment.user.email %>
     <%= comment.body %>
   </p>
 <% end %>
 
 <script type="text/javascript">
+  var mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
+
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map_show_page'}}, function(){
+  handler.buildMap({ provider: {styles:    mapStyle}, internal: {id: 'map_show_page'}}, function(){
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();

@@ -18,11 +18,58 @@
 @import "bootstrap";
 @import "font-awesome";
 
-.container{
-  .ranking{
+.navbar{
+  margin:0;
+  color: #fff;
+  background-color: #474747;
+  border:0;
+  border-bottom: 1px solid #7f7f7f;
+  border-radius: 0;
+}
 
+a{
+  color: #7f7f7f;
+}
+a:hover{
+  color: #545454;
+}
+
+.container{
+  margin: 0;
+  background-color: #333333;
+  height:100vh;
+  width:100%;
+
+  h1{
+    color: #7f7f7f;
+    text-align: center;
+    padding: 1em 0;
+  }
+  .ranking{
+    margin-bottom: 2em;
+    padding: 0 2em;
+    text-align: center;
+    font-size: 1.6em;
+    .gym_panel{
+      padding:1em 0;
+      .col-sm-4{
+        text-align:left;
+      }
+      .col-sm-1{
+        text-align: right;
+      }
+    }
   }
   .map_wrapper{
-    
+    width:90%;
+    margin:0;
+    -webkit-box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
+    -moz-box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
+    box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
+    margin-left:auto;
+    margin-right: auto;
+    #map{
+      height:300px;
+    }
   }
 }
