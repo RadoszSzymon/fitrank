@@ -14,6 +14,7 @@ gem 'devise', '~> 3.5', '>= 3.5.2'
 gem "font-awesome-rails"
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'acts_as_votable'
 
 group :development, :test do
   gem 'byebug'

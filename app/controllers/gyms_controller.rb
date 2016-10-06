@@ -52,6 +52,22 @@ class GymsController < ApplicationController
 		redirect_to gyms_path
   end
 
+  def upvote
+    @gym = Gym.find(params[:id])
+    @gym.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @gym = Gym.find(params[:id])
+    @gym.downvote_by current_user
+    redirect_to :back
+  end
+
+  def score
+    @score = self.get_upvotes.size - self.get_downvotes.size
+  end
+
   private
 
   def gym_params

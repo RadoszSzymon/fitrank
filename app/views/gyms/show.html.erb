@@ -16,6 +16,19 @@
     <%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "http://#{@gym.fb_page}", target: "_blank"%>
     <%= link_to '<i class="fa fa-twitter"></i>'.html_safe, "http://#{@gym.tw_page}", target: "_blank"%>
     <%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "http://#{@gym.ins_page}", target: "_blank"%>
+
+    <h2>Vote:</h2>
+    <%= link_to like_gym_path(@gym), method: :put do %>
+      Upvote
+      <%= @gym.get_upvotes.size %>
+    <% end %>
+
+    <%= link_to dislike_gym_path(@gym), method: :put do %>
+      Downvote
+      <%= @gym.get_downvotes.size %>
+    <% end %>
+
+    <h3><%= @score %></h3>
   </div>
 </div>
 
