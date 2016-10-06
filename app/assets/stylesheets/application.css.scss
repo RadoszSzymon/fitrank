@@ -52,8 +52,8 @@ a:hover{
 
 .container{
   margin: 0;
+  padding-bottom: 2em;
   background-color: #333333;
-  height:100vh;
   width:100%;
 
   h1{
@@ -86,7 +86,58 @@ a:hover{
     margin-right: auto;
     #map{
       height:300px;
+    }
+  }
 
+  .show{
+    color: #6d6d6d;
+    padding: 2em;
+    .show_map{
+      -webkit-box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
+      -moz-box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
+      box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
+      padding:0;
+    }
+    .gym_details{
+      color: #6d6d6d;
+      padding-left: 4em;
+      i{
+        font-size: 2em;
+        padding-right: 1em;
+      }
+      .vote_h2, .vote{
+        display: inline;
+      }
+      .social_icons{
+        padding: 1em 0 .6em 0;
+      }
+    }
+  }
+
+  .comment_box{
+    padding: 2em;
+    color: #6d6d6d;
+    .comment_body{
+      resize: none;
+      width:40%;
+      height:20vh;
+    }
+    .comment_btn{
+      color:#a5a5a5;
+      background-color: #333333;
+    }
+    .comment_btn:hover{
+      color: #565656;
+      border: 1px solid #565656;
+    }
+  }
+
+  .comments{
+    padding:2em;
+    color: #6d6d6d;
+    h3{
+      padding-left: 1em;
+      color:#a5a5a5;
     }
   }
 

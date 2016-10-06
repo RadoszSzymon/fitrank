@@ -4,8 +4,8 @@
 
 <p id="notice"><%= notice %></p>
 <div class="row show">
-  <div class="col-sm-6" id="map_show_page" style="height: 300px;"></div>
-  <div class="col-sm-6">
+  <div class="col-sm-6 show_map" id="map_show_page" style="height: 300px;"></div>
+  <div class="col-sm-6 gym_details">
     <h2><%= @gym.name %></h2>
 
     <% if user_signed_in? %>
@@ -17,42 +17,42 @@
     <h4>Address: <%= @gym.address %></h4>
     <h4><%= link_to @gym.website, "http://#{@gym.website}", target: "_blank" %></h4>
 
-    <%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "http://#{@gym.fb_page}", target: "_blank"%>
-    <%= link_to '<i class="fa fa-twitter"></i>'.html_safe, "http://#{@gym.tw_page}", target: "_blank"%>
-    <%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "http://#{@gym.ins_page}", target: "_blank"%>
+    <div class="social_icons">
+      <%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "http://#{@gym.fb_page}", target: "_blank"%>
+      <%= link_to '<i class="fa fa-twitter"></i>'.html_safe, "http://#{@gym.tw_page}", target: "_blank"%>
+      <%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "http://#{@gym.ins_page}", target: "_blank"%>
+    </div>
 
-    <h2>Vote:</h2>
-    <%= @gym.get_upvotes.size %>
+    <h3>Vote:</h3>
+    <h2 class="vote_h2"><%= @gym.get_upvotes.size %></h2>
     <%= link_to like_gym_path(@gym), method: :put do %>
-      <%= fa_icon "thumbs-up" %>
+      <%= fa_icon "thumbs-up", class:"vote"  %>
     <% end %>
 
-    <%= @gym.get_downvotes.size %>
+    <h2 class="vote_h2"><%= @gym.get_downvotes.size %></h2>
     <%= link_to dislike_gym_path(@gym), method: :put do %>
-      <%= fa_icon "thumbs-down" %>
+      <%= fa_icon "thumbs-down", class:"vote" %>
     <% end %>
-
-    <h3><%= @score %></h3>
   </div>
 </div>
+<div class="comment_box">
+  <h2>Add a comment:</h2>
+  <%= form_for([@gym, @gym.comments.build]) do |f| %>
+    <div class="field">
+      <%= f.text_area :body, class:"comment_body" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Write Comment", class:"btn btn-default comment_btn" %>
+    </div>
+  <% end %>
+</div>
 
-<h2>Add a comment:</h2>
-<%= form_for([@gym, @gym.comments.build]) do |f| %>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Write Comment", class:"btn btn-default" %>
-  </div>
-<% end %>
-
-<h2>Comments</h2>
-<% @gym.comments.each do |comment| %>
-  <p>
-    <%= comment.body %>
-  </p>
-<% end %>
+<div class="comments">
+  <h2>Comments:</h2>
+  <% @gym.comments.each do |comment| %>
+      <h3><%= comment.body %></h3>
+  <% end %>
+</div>
 
 <script type="text/javascript">
   var mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
