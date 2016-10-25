@@ -4,7 +4,9 @@ class GymsController < ApplicationController
 
     @hash = Gmaps4rails.build_markers(@gyms) do |gym, marker|
       marker.lat gym.latitude
+     
       marker.lng gym.longitude
+      marker.infowindow "#{gym.name} <br> #{gym.owner} <br>"
     end
   end
 
