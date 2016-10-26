@@ -40,7 +40,7 @@ class GymsController < ApplicationController
   def update
     @gym = Gym.find(params[:id])
 
-		if @gym.update(params[:gym].permit(:name, :owner, :fb_page, :tw_page, :ins_page, :website, :address, :latitude, :longitude))
+		if @gym.update(params[:gym].permit(:name, :owner, :hours, :fb_page, :tw_page, :ins_page, :website, :address, :latitude, :longitude))
 			redirect_to @gym
 		else
 			render 'edit'
@@ -73,6 +73,6 @@ class GymsController < ApplicationController
   private
 
   def gym_params
-    params.require(:gym).permit(:name, :owner, :fb_page, :tw_page, :ins_page, :website, :address, :latitude, :longitude)
+    params.require(:gym).permit(:name, :owner, :hours, :fb_page, :tw_page, :ins_page, :website, :address, :latitude, :longitude)
   end
 end
