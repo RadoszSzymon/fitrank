@@ -21,10 +21,16 @@
 .navbar{
   margin:0;
   color: #fff;
-  background-color: #474747;
+  background-color:#051925;
   border:0;
   border-bottom: 1px solid #7f7f7f;
   border-radius: 0;
+}
+
+.line{
+  border-top: 1px solid #7f7f7f;
+  width:100%;
+  margin: 1.7em 0 0 0;
 }
 
 body{
@@ -42,7 +48,7 @@ a:hover{
 .footer{
   text-align: center;
   padding:.3em;
-  background-color: #474747;
+  background-color: #051925;
   border-top: 1px solid #7f7f7f;
   color: #7f7f7f;
   a{
@@ -56,11 +62,16 @@ a:hover{
 
 .container{
   margin: 0;
-  padding-bottom: 2em;
+  padding-bottom: 0;
   width:100%;
+  background-color:#08304B;
+  
+  .vote{
+    color: #7f7f7f;
+  }
 
   h1{
-    color: #7f7f7f;
+    color: #fff;
     text-align: center;
     padding: 1em 0;
     font-size: 4em;
@@ -115,7 +126,7 @@ a:hover{
   }
   .map_wrapper{
     width:90%;
-    margin:0;
+    margin:0 0 3em 0;
     -webkit-box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
     -moz-box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
     box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);

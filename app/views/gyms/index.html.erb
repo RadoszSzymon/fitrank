@@ -14,7 +14,7 @@
       <div class="col-sm-4">
         <%= link_to gym.website, "http://#{gym.website}", target: "_blank" %>
       </div>
-      <div class="col-sm-1">
+      <div class="col-sm-1 vote">
         <%= gym.get_upvotes.size %><%= fa_icon "thumbs-up", class:"vote"  %>
       </div>
       <div class="col-sm-1">
@@ -27,6 +27,7 @@
         <%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "http://#{gym.ins_page}", target: "_blank"%>
       </div>
     </div>
+    <div class="line"></div>
   <% end %>
 
 </div>
