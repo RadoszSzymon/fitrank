@@ -6,7 +6,7 @@ class GymsController < ApplicationController
       marker.lat gym.latitude
      
       marker.lng gym.longitude
-      marker.infowindow "#{gym.name} <br> #{gym.owner} <br>"
+      marker.infowindow "#{gym.name} <br> #{gym.owner} <br> Hours: #{gym.hours} <br> #{gym.website}"
     end
   end
 
