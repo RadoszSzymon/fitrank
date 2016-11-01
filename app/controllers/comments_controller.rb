@@ -1,12 +1,17 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @gym = Gym.find(params[:gym_id])
-    @comment = @gym.comments.create(comments_params)
-    redirect_to gym_path(@gym)
-  end
+    @comment = Comment.create(params[:comment].permit(:body))
+    @comment.user_id = current_user.id
+    @comment.user_email = current_user.email
+    @comment.gym_id = @gym.id
 
-  private
-  def comments_params
-     params.require(:comment).permit(:body)
-   end
+    if @comment.save
+      redirect_to gym_path(@gym)
+    else
+      render 'new'
+    end
+  end
 end

@@ -140,6 +140,13 @@ a:hover{
   .show{
     color: #6d6d6d;
     padding: 2em;
+    
+    h1{
+      text-align:left;
+      padding:0 0 0.2em 0;
+      margin-top:0;
+    }
+    
     .show_map{
       -webkit-box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
       -moz-box-shadow: 0px 0px 21px 6px rgba(31,31,31,1);
@@ -167,12 +174,12 @@ a:hover{
     color: #6d6d6d;
     .comment_body{
       resize: none;
-      width:40%;
+      width:100%;
       height:20vh;
     }
     .comment_btn{
       color:#a5a5a5;
-      background-color: #333333;
+      background-color: #051925;
     }
     .comment_btn:hover{
       color: #565656;
