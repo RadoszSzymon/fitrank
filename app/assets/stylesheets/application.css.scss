@@ -50,6 +50,10 @@ a:hover{
   }
 }
 
+.alert-success{
+  text-align:center;
+}
+
 .container{
   margin: 0;
   padding-bottom: 2em;
@@ -59,6 +63,25 @@ a:hover{
     color: #7f7f7f;
     text-align: center;
     padding: 1em 0;
+  }
+  
+  .sign_up{
+    text-align:center;
+    min-height:90vh;
+    
+    h1{
+      padding-top: 1em;
+      font-size: 4em;
+    }
+    
+    .sign_up_btn{
+      margin-top: 1.7em; 
+      width: 40%;
+    }
+    
+    input{
+      width:100%;
+    }
   }
   .ranking{
     margin-bottom: 2em;
