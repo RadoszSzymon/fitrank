@@ -63,6 +63,21 @@ a:hover{
     color: #7f7f7f;
     text-align: center;
     padding: 1em 0;
+    font-size: 4em;
+  }
+  
+  .new_gym{
+    text-align:center;
+    padding-bottom:2em;
+    
+    input{
+      width:100%;
+    }
+    
+    .new_gym_btn{
+      margin-top: 1.7em; 
+      width: 40%;
+    }
   }
   
   .sign_up{
@@ -71,7 +86,7 @@ a:hover{
     
     h1{
       padding-top: 1em;
-      font-size: 4em;
+      
     }
     
     .sign_up_btn{

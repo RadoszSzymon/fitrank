@@ -15,7 +15,7 @@
   <%= f.label :owner %><br>
 	<%= f.text_field :owner %><br>
 	<br>
-  <%= f.label :hours %><br>
+  <%= f.label :hours, "Hours, for example 8:00-20:00" %><br>
     <%= f.text_field :hours %><br>
     <br>
   <%= f.label :website %><br>
@@ -24,7 +24,7 @@
   <%= f.label :fb_page %><br>
 	<%= f.text_field :fb_page %><br>
 	<br>
-	<%= f.label :address %><br>
+	<%= f.label :address, "Address, for example: Nowoursynowska 166 Warszawa Polska"%><br>
 	<%= f.text_field :address %><br>
 	<br>
   <%= f.label :tw_page %><br>
@@ -33,5 +33,5 @@
   <%= f.label :ins_page %><br>
 	<%= f.text_field :ins_page %><br>
 	<br>
-	<%= f.submit %>
+	<%= f.submit "Add new gym", class: "btn btn-default new_gym_btn" %>
 <% end %>
