@@ -51,7 +51,8 @@
 <div class="comments">
   <h2>Comments:</h2>
   <% @gym.comments.each do |comment| %>
-      <h3><%= comment.user_email%> wrote:</h3>
+      <h3><%= comment.user_email%></h3>
+      <h6><%= comment.created_at %></h6>
       <h4><%= comment.body %></h4>
   <% end %>
 </div>

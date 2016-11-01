@@ -190,9 +190,19 @@ a:hover{
   .comments{
     padding:2em;
     color: #6d6d6d;
+    h2{
+      color: #fff;
+    }
     h3{
       padding-left: 1em;
       color:#a5a5a5;
+    }
+    h6{
+      padding-left:2em;
+    }
+    h4{
+      padding-left:3em;
+      padding-bottom: 2em;
     }
   }
 
