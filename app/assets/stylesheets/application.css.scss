@@ -205,5 +205,16 @@ a:hover{
       padding-bottom: 2em;
     }
   }
+}
 
+@media only screen and (max-width: 830px) {
+  .container{
+  	.ranking{
+  	  .gym_panel{
+  	    .index_icon,.index_website{
+  	      display:none;
+  	    }
+  	  }
+  	}
+  }
 }

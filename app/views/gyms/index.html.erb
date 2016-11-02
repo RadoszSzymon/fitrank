@@ -8,23 +8,23 @@
 
   <% @gyms.each do |gym| %>
     <div class="gym_panel">
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-xs-7">
         <%= link_to gym.name, gym %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3 index_website">
         <%= link_to gym.website, "http://#{gym.website}", target: "_blank" %>
       </div>
-      <div class="col-sm-1 vote">
-        <%= gym.get_upvotes.size %><%= fa_icon "thumbs-up", class:"vote"  %>
-      </div>
-      <div class="col-sm-1">
+      <div class="col-sm-1 index_icon">
         <%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "http://#{gym.fb_page}", target: "_blank"%>
       </div>
-      <div class="col-sm-1">
+      <div class="col-sm-1 index_icon">
         <%= link_to '<i class="fa fa-twitter"></i>'.html_safe, "http://#{gym.tw_page}", target: "_blank"%>
       </div>
-      <div class="col-sm-1">
+      <div class="col-sm-1 index_icon">
         <%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "http://#{gym.ins_page}", target: "_blank"%>
+      </div>
+      <div class="col-sm-2 col-xs-5 vote">
+        <%= gym.get_upvotes.size %><%= fa_icon "thumbs-up", class:"vote"  %>
       </div>
     </div>
     <div class="line"></div>
