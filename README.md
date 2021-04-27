@@ -7,6 +7,3 @@ Gyms ranking build in Ruby on Rails with Google Maps API
 * acts_as_votable
 * geocoder
 * gmaps4rails
-
-## Author
-* Radosz Szymon
